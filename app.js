@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/shutdown', (req, res) => {
-  exec('shutdown /s /t 0', (error, stdout, stderr) => {
+  exec('shutdown /s /t 0', (error) => {
     if (error) {
       console.error(`Error: ${error}`);
       res.send('Error shutting down.');
@@ -41,7 +41,7 @@ app.post('/shutdown', (req, res) => {
 });
 
 app.post('/restart', (req, res) => {
-  exec('shutdown /r /t 0', (error, stdout, stderr) => {
+  exec('shutdown /r /t 0', (error) => {
     if (error) {
       console.error(`Error: ${error}`);
       res.send('Error restarting.');
